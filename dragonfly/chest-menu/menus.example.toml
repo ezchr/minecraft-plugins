@@ -1,0 +1,83 @@
+# Chest menus. Copy this file next to your server as menus.toml and edit it.
+#
+# Every [menus.<name>] becomes the command /<name> - use lowercase, no spaces.
+# Items are Bedrock names like "minecraft:diamond". Colour codes (§a, §l, ...) work in names and lore.
+# Placeholders in titles, names, lore, messages and commands: {player}, {page}, {pages}.
+#
+# Slot numbers in a chest (27 slots); a double_chest continues with 27-53:
+#
+#    0  1  2  3  4  5  6  7  8
+#    9 10 11 12 13 14 15 16 17
+#   18 19 20 21 22 23 24 25 26
+
+[menus.shop]
+title = "§l§bShop §r§8({page}/{pages})"
+size = "chest"                              # chest, double_chest, barrel, hopper or dropper
+description = "Opens the shop"
+aliases = ["store"]
+filler = "minecraft:black_stained_glass_pane"   # remove this line for empty slots
+
+# Page arrows - these are the defaults, so both tables can be left out.
+[menus.shop.previous]
+item = "minecraft:arrow"
+name = "§e« Previous page"
+slot = 18
+
+[menus.shop.next]
+item = "minecraft:arrow"
+name = "§eNext page »"
+slot = 26
+
+# Page 1
+[[menus.shop.pages]]
+
+[[menus.shop.pages.items]]
+slot = 11
+item = "minecraft:diamond_sword"
+name = "§bPvP kit"
+lore = ["§7Everything you need to fight.", "§eClick to claim"]
+command = "say {player} claimed the PvP kit"   # runs as the player, the leading / is optional
+close = true                                   # close the chest after clicking
+
+[[menus.shop.pages.items]]
+slot = 13
+item = "minecraft:emerald"
+count = 16
+name = "§aYour balance"
+lore = ["§7Hi {player}!"]
+message = "§aYou have 16 emeralds."            # sent only to the player who clicked
+
+[[menus.shop.pages.items]]
+slot = 15
+item = "minecraft:compass"
+name = "§dWarps"
+open = "warps"                                 # opens another menu from this file
+
+# Page 2
+[[menus.shop.pages]]
+
+[[menus.shop.pages.items]]
+slot = 13
+item = "minecraft:elytra"
+name = "§5Elytra"
+lore = ["§7Only on page 2."]
+
+
+[menus.warps]
+title = "§l§dWarps"
+size = "hopper"
+
+[[menus.warps.pages]]
+
+[[menus.warps.pages.items]]
+slot = 0
+item = "minecraft:ender_pearl"
+name = "§cSpawn"
+command = "tp @s 0 100 0"
+close = true
+
+[[menus.warps.pages.items]]
+slot = 4
+item = "minecraft:chest"
+name = "§bBack to the shop"
+open = "shop"

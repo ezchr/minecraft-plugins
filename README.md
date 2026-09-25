@@ -17,6 +17,11 @@ Each plugin has its own folder with a README covering install and configuration.
 - [**chest-menu**](endstone/chest-menu/) - chest-style menus with pages, arrows and click
   commands, no resource pack needed.
 
+### Dragonfly
+
+- [**chest-menu**](dragonfly/chest-menu/) - chest-style menus configured from a TOML file:
+  pages, arrows, and buttons that run commands, send messages or open other menus.
+
 ## License
 
 MIT - see [LICENSE](LICENSE).
