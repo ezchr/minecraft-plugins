@@ -1,0 +1,15 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "endstone-chestmenu"
+version = "1.0.0"
+description = "Chest-style menus for Endstone - pages, arrows and click commands, no resource pack."
+requires-python = ">=3.10"
+
+[project.entry-points."endstone"]
+chestmenu = "endstone_chestmenu:ChestMenuPlugin"
+
+[tool.hatch.build.targets.wheel]
+packages = ["endstone_chestmenu"]
