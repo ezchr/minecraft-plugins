@@ -1,0 +1,23 @@
+﻿{
+	"format_version": 2,
+	"header": {
+		"name": "Simple Auction House RP",
+		"description": "Resource pack providing the chest UI overlay for the Simple Auction House.",
+		"min_engine_version": [1, 21, 0],
+		"uuid": "c4d5e6f7-a8b9-0123-dabc-456789abcdef",
+		"version": [1, 0, 12]
+	},
+	"modules": [
+		{
+			"type": "resources",
+			"uuid": "d5e6f7a8-b9c0-1234-abcd-56789abcdef0",
+			"version": [1, 0, 12]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "f1a2b3c4-d5e6-7890-abcd-123456789abc",
+			"version": [1, 0, 0]
+		}
+	]
+}

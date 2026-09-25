@@ -1,0 +1,34 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "Simple Auction House BP",
+		"description": "Lightweight player-to-player auction house using scoreboard money. Commands: /ah /ahsell /ahmenu",
+		"min_engine_version": [1, 21, 0],
+		"uuid": "f1a2b3c4-d5e6-7890-abcd-123456789abc",
+		"version": [1, 0, 0]
+	},
+	"modules": [
+		{
+			"type": "data",
+			"uuid": "a2b3c4d5-e6f7-8901-bcda-23456789abcd",
+			"version": [1, 0, 0]
+		},
+		{
+			"type": "script",
+			"language": "javascript",
+			"uuid": "b3c4d5e6-f7a8-9012-cdab-3456789abcde",
+			"entry": "scripts/main.js",
+			"version": [1, 0, 0]
+		}
+	],
+	"dependencies": [
+		{
+			"module_name": "@minecraft/server",
+			"version": "2.8.0"
+		},
+		{
+			"module_name": "@minecraft/server-ui",
+			"version": "2.1.0"
+		}
+	]
+}

@@ -1,0 +1,553 @@
+{
+    "namespace": "chest_ui",
+    "chest_label": {
+        "type": "label",
+        "text": "#title_text",
+        "color": "$ah_title_color",
+        "layer": 2,
+        "anchor_from": "bottom_left",
+        "anchor_to": "bottom_left"
+    },
+    "grid_items": {
+        "type": "grid",
+        "size": [
+            "100%",
+            "default"
+        ],
+        "offset": [
+            0,
+            0
+        ],
+        "grid_dimensions": "$grid_size",
+        "grid_item_template": "chest_ui.inventory_item_panel",
+        "collection_name": "form_buttons",
+        "layer": 1
+    },
+    "chest_ui_template": {
+        "type": "panel",
+        "size": [
+            "100%c",
+            "100%c"
+        ],
+        "bindings": [
+            {
+                "binding_name": "#title_text",
+                "binding_type": "global"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(not ((#title_text - $condition) = #title_text))",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "background": {
+                    "type": "image",
+                    "texture": "$ah_panel_tex",
+                    "layer": 0,
+                    "nineslice_size": 7,
+                    "size": [ // this line took a decade to figure out
+                        "100%c + 14px",
+                        "100%c + 11px"
+                    ],
+                    "controls": [
+                        {
+                            "container": {
+                                "type": "panel",
+                                "anchor_from": "center_middle",
+                                "anchor_to": "center_middle",
+                                "size": [
+                                    "100%c",
+                                    "100%c"
+                                ],
+                                "controls": [
+                                    {
+                                        "stack": {
+                                            "type": "stack_panel",
+                                            "orientation": "vertical",
+                                            "size": [
+                                                "162px",
+                                                "100%c"
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "gap@common.empty_panel": {
+                                                        "size": [
+                                                            "100%",
+                                                            6
+                                                        ],
+                                                        "controls": [
+                                                            {
+                                                                "close_button@common.close_button": {
+                                                                    "$close_button_offset": [
+                                                                        5,
+                                                                        -3
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "text@chest_ui.chest_label": {}
+                                                },
+                                                {
+                                                    "grid@chest_ui.grid_items": {}
+                                                },
+                                                {
+                                                    "gap2@common.empty_panel": {
+                                                        "size": [
+                                                            0,
+                                                            1
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "inventory_label@chest_ui_inventory_system.inventory_label": {}
+                                                },
+                                                {
+                                                    "inventory_items@chest_ui_inventory_system.inventory_items": {}
+                                                },
+                                                {
+                                                    "gap3@common.empty_panel": {
+                                                        "size": [
+                                                            0,
+                                                            3
+                                                        ],
+                                                        "ignored": "(not $show_inventory)"
+                                                    }
+                                                },
+                                                {
+                                                    "hotbar_items@chest_ui_inventory_system.hotbar_items": {}
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    // Add dynamic/custom sizing scales and edit forms.js -> sizes
+    "chest_panel": {
+        "type": "panel",
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "09@chest_ui.chest_ui_template": {
+                    "$grid_size": [
+                        9,
+                        1
+                    ],
+                    "$condition": "§c§h§e§s§t§0§9",
+                    "ignored": "$disable_9_slots_layout"
+                }
+            },
+            {
+                "01@chest_ui.chest_ui_template": {
+                    "$grid_size": [
+                        1,
+                        1
+                    ],
+                    "$condition": "§c§h§e§s§t§0§1",
+                    "ignored": "$disable_1_slots_layout"
+                }
+            },
+            {
+                "05@chest_ui.chest_ui_template": {
+                    "$grid_size": [
+                        5,
+                        1
+                    ],
+                    "$condition": "§c§h§e§s§t§0§5",
+                    "ignored": "$disable_5_slots_layout"
+                }
+            },
+            {
+                "18@chest_ui.chest_ui_template": {
+                    "$grid_size": [
+                        9,
+                        2
+                    ],
+                    "$condition": "§c§h§e§s§t§1§8",
+                    "ignored": "$disable_18_slots_layout"
+                }
+            },
+            {
+                "27@chest_ui.chest_ui_template": {
+                    "$grid_size": [
+                        9,
+                        3
+                    ],
+                    "$condition": "§c§h§e§s§t§2§7",
+                    "ignored": "$disable_27_slots_layout"
+                }
+            },
+            {
+                "36@chest_ui.chest_ui_template": {
+                    "$grid_size": [
+                        9,
+                        4
+                    ],
+                    "$condition": "§c§h§e§s§t§3§6",
+                    "ignored": "$disable_36_slots_layout"
+                }
+            },
+            {
+                "45@chest_ui.chest_ui_template": {
+                    "$grid_size": [
+                        9,
+                        5
+                    ],
+                    "$condition": "§c§h§e§s§t§4§5",
+                    "ignored": "$disable_45_slots_layout"
+                }
+            },
+            {
+                "54@chest_ui.chest_ui_template": {
+                    "$grid_size": [
+                        9,
+                        6
+                    ],
+                    "$condition": "§c§h§e§s§t§5§4",
+                    "ignored": "$disable_54_slots_layout"
+                }
+            }
+        ]
+    },
+    "inventory_item_panel": {
+        "type": "panel",
+        "size": [
+            18,
+            18
+        ],
+        "layer": 1,
+        "controls": [
+            {
+                "bg@chest_ui.cell": {}
+            },
+            {
+                "inventory_button_amount@chest_ui.inventory_button_amount": {}
+            },
+            {
+                "inventory_item@chest_ui.inventory_item": {}
+            }
+        ]
+    },
+    "cell": {
+        "type": "image",
+        "texture": "textures/ui/item_background",
+        "size": [
+            18,
+            18
+        ],
+        "layer": 2
+    },
+    "inventory_item@common.button": {
+        "$pressed_button_name": "button.form_button_click",
+        "bindings": [
+            {
+                "binding_name": "#null",
+                "binding_type": "collection",
+                "binding_condition": "none",
+                "binding_collection_name": "form_buttons"
+            },
+            {
+                "binding_name": "#null",
+                "binding_type": "collection_details",
+                "binding_collection_name": "form_buttons"
+            },
+            {
+                "binding_name": "#form_button_text",
+                "binding_type": "collection",
+                "binding_collection_name": "form_buttons"
+            },
+            {
+                "binding_name": "#null",
+                "binding_type": "view",
+                "source_property_name": "(not (#form_button_text = ''))",
+                "target_property_name": "#visible"
+            }
+        ],
+        "$aux_id": [
+            {
+                "binding_name": "#form_button_texture",
+                "binding_type": "collection",
+                "binding_collection_name": "form_buttons"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(not (('%.8s' * #form_button_texture) = 'textures'))",
+                "target_property_name": "#visible"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(not ((#texture = '') or (#texture = 'loading')))",
+                "target_property_name": "#visible"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((#form_button_texture - (#form_button_texture % 65536)) / 65536)",
+                "target_property_name": "#item_id_aux"
+            }
+        ],
+        "default_control": "default",
+        "hover_control": "hover",
+        "pressed_control": "pressed",
+        "controls": [
+            {
+                "default@chest_ui.default_control": {}
+            },
+            {
+                "hover@chest_ui.hover_control": {}
+            },
+            {
+                "pressed@chest_ui.pressed_control": {}
+            }
+        ]
+    },
+    "default_control": {
+        "type": "panel",
+        "size": [
+            16,
+            16
+        ],
+        "controls": [
+            {
+                "item@beacon.item_renderer": {
+                    "size": [
+                        16,
+                        16
+                    ],
+                    "layer": 4,
+                    "bindings": "$aux_id"
+                }
+            },
+            {
+                "glint_overlay@chest_ui.glint_overlay": {}
+            },
+            {
+                "non_renderer_item@chest_ui.non_renderer_item": {}
+            }
+        ]
+    },
+    "hover_control": {
+        "type": "panel",
+        "size": [
+            18,
+            18
+        ],
+        "controls": [
+            {
+                "item@beacon.item_renderer": {
+                    "size": [
+                        16,
+                        16
+                    ],
+                    "layer": 4,
+                    "bindings": "$aux_id",
+                    "offset": [
+                        1,
+                        1
+                    ]
+                }
+            },
+            {
+                "non_renderer_item@chest_ui.non_renderer_item": {}
+            },
+            {
+                "item_details@chest_ui.item_details": {}
+            },
+            {
+                "highlight_slot@chest_ui.highlight_slot": {}
+            },
+            {
+                "focus_border@chest_ui.focus_border": {}
+            }
+        ]
+    },
+    "pressed_control": {
+        "type": "panel",
+        "size": [
+            16,
+            16
+        ],
+        "controls": [
+            {
+                "item@beacon.item_renderer": {
+                    "size": [
+                        16,
+                        16
+                    ],
+                    "layer": 4,
+                    "bindings": "$aux_id"
+                }
+            },
+            {
+                "glint_overlay@chest_ui.glint_overlay": {}
+            },
+            {
+                "non_renderer_item@chest_ui.non_renderer_item": {}
+            },
+            {
+                "focus_border@chest_ui.focus_border": {}
+            }
+        ]
+    },
+    "highlight_slot": {
+        "type": "image",
+        "size": [
+            18,
+            18
+        ],
+        "texture": "textures/ui/highlight_slot",
+        "layer": 3
+    },
+    "focus_border": {
+        "type": "image",
+        "size": [
+            18,
+            18
+        ],
+        "texture": "textures/ui/focus_border_white",
+        "layer": 4
+    },
+    "item_details": {
+        "type": "custom",
+        "renderer": "hover_text_renderer",
+        "allow_clipping": false,
+        "layer": 30,
+        "bindings": [
+            {
+                "binding_name": "#form_button_text",
+                "binding_type": "collection",
+                "binding_collection_name": "form_buttons"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#form_button_text - ('%.14s' * #form_button_text))",
+                "target_property_name": "#hover_text"
+            },
+            {
+                "binding_type": "collection_details",
+                "binding_collection_name": "form_buttons"
+            }
+        ]
+    },
+    "comment_glint": "Enchantment shimmer. Character 8 of the button text is 'e' for enchanted, 'd' otherwise (forms.js) - a single-character equality check, same pattern as the wear band at character 9. Was previously a 4-character literal check against the whole 'dur#' padding, which broke once position 9 of that padding started varying to carry the wear band.",
+    "glint_overlay": {
+        "type": "image",
+        "texture": "textures/ui/glint",
+        "size": [ 16, 16 ],
+        "layer": 6,
+        "alpha": 0.55,
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "bindings": [
+            {
+                "binding_type": "collection_details",
+                "binding_collection_name": "form_buttons"
+            },
+            {
+                "binding_name": "#form_button_text",
+                "binding_type": "collection",
+                "binding_collection_name": "form_buttons"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((%.9s * #form_button_text) - (%.8s * #form_button_text))",
+                "target_property_name": "#ench_char"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(#ench_char = 'e')",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+    "comment_durability": "The bar was removed: it needs a fraction (how full to draw it) derived from durability text sliced out of a synthetic label, and that specific kind of arithmetic has no confirmed precedent anywhere in vanilla's own shipped UI - the real vanilla durability bar (ui_common.json, common.durability_bar) is a native custom renderer bound to a real item's actual durability properties, which a chest form's label text never has access to. The wear percentage is shown as text in the item's hover tooltip instead (main.js durabilityLine), which needs no binding-language arithmetic at all.",
+    "inventory_button_amount": {
+        "type": "panel",
+        "controls": [
+            {
+                "item_amount": {
+                    "type": "label",
+                    "offset": [
+                        0,
+                        1
+                    ],
+                    "shadow": true,
+                    "text_alignment": "left",
+                    "anchor_from": "bottom_right",
+                    "anchor_to": "bottom_right",
+                    "color": "$ah_tooltip_color",
+                    "layer": 6,
+                    "text": "#stack_size",
+                    "bindings": [
+                        {
+                            "binding_name": "#null",
+                            "binding_type": "collection",
+                            "binding_condition": "none",
+                            "binding_collection_name": "form_buttons"
+                        },
+                        {
+                            "binding_name": "#null",
+                            "binding_type": "collection_details",
+                            "binding_collection_name": "form_buttons"
+                        },
+                        {
+                            "binding_name": "#form_button_text",
+                            "binding_type": "collection",
+                            "binding_collection_name": "form_buttons"
+                        },
+                        {
+                            "binding_name": "#null",
+                            "binding_type": "view",
+                            "source_property_name": "((#form_button_text - 'stack#01') = #form_button_text)",
+                            "target_property_name": "#visible"
+                        },
+                        {
+                            "binding_name": "#null",
+                            "binding_type": "view",
+                            "source_property_name": "(('§z') + (('%.8s' * #form_button_text) - ('%.6s' * #form_button_text)))",
+                            "target_property_name": "#stack_size"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "non_renderer_item": {
+        "type": "image",
+        "size": [
+            16,
+            16
+        ],
+        "layer": 4,
+        "bindings": [
+            {
+                "binding_name": "#form_button_texture",
+                "binding_name_override": "#texture",
+                "binding_type": "collection",
+                "binding_collection_name": "form_buttons"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(not ((#texture = '') or (#texture = 'loading')))",
+                "target_property_name": "#visible"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(('%.8s' * #texture) = 'textures')",
+                "target_property_name": "#visible"
+            }
+        ]
+    }
+}

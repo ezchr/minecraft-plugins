@@ -1,0 +1,15 @@
+{
+	"$show_inventory": false,
+	"$ah_panel_tex": "textures/ui/dialog_background_opaque",
+	"$ah_title_color": [1, 1, 1],
+	"$ah_tooltip_color": [1, 1, 1],
+	"$disable_furnace_ui": true,
+	"$disable_1_slots_layout": true,
+	"$disable_5_slots_layout": true,
+	"$disable_9_slots_layout": true,
+	"$disable_18_slots_layout": true,
+	"$disable_27_slots_layout": false,
+	"$disable_36_slots_layout": true,
+	"$disable_45_slots_layout": true,
+	"$disable_54_slots_layout": false
+}
