@@ -22,6 +22,8 @@ Each plugin has its own folder with a README covering install and configuration.
 
 - [**chest-menu**](dragonfly/chest-menu/) - chest-style menus configured from a TOML file:
   pages, arrows, and buttons that run commands, send messages or open other menus.
+- [**trader**](dragonfly/trader/) - villager traders that open the real trading window, with
+  every offer defined in `traders.json`: any item, use limits and restocks.
 
 ### Add-ons
 

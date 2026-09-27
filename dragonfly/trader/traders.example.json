@@ -1,0 +1,51 @@
+{
+  "traders": {
+    "example": {
+      "name": "§6Example Trader",
+      "limitPer": "player",
+      "restockMinutes": 60,
+      "offers": [
+        {
+          "buy": {
+            "item": "minecraft:iron_ingot",
+            "count": 10
+          },
+          "sell": {
+            "item": "minecraft:diamond",
+            "count": 1
+          },
+          "maxUses": 5
+        },
+        {
+          "buy": {
+            "item": "minecraft:diamond",
+            "count": 3
+          },
+          "buy2": {
+            "item": "minecraft:book",
+            "count": 1
+          },
+          "sell": {
+            "item": "minecraft:enchanted_book",
+            "count": 1,
+            "name": "§bMending",
+            "enchantments": {
+              "mending": 1
+            }
+          },
+          "maxUses": 1
+        },
+        {
+          "buy": {
+            "item": "minecraft:cobblestone",
+            "count": 64
+          },
+          "sell": {
+            "item": "minecraft:emerald",
+            "count": 1
+          }
+        }
+      ]
+    }
+  }
+}
